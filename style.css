@@ -1,0 +1,95 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    height: 100%;
+}
+.gradient-bg {
+    flex: 1;
+    background-image: linear-gradient(45deg, rgba(156, 39, 176, 0.8), rgba(103, 58, 183, 0.8)), url('assets/klara-kulikova-jFNTuS8kGh4-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.form-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+.form {
+    width: 80%;
+    max-width: 400px;
+}
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+.input-group input:focus {
+    border-image: linear-gradient(45deg, #9c27b0, #673ab7);
+    border-image-slice: 1;
+}
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: #9c27b0;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.checkbox-group input {
+    margin-right: 10px;
+}
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #9c27b0, #673ab7);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+}
+.sign-in {
+    text-align: center;
+    margin-top: 15px;
+}
+.sign-in a {
+    color: #9c27b0;
+    text-decoration: none;
+}
