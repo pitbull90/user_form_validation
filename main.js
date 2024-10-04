@@ -22,15 +22,25 @@ function ValidateForm() {
 // Validation for the Full Name input
 function CheckFullName() {
     const fullNameValue = fullname.value.trim();
+    // If the input value is empty run the form control for empty input
     if (fullNameValue === '') {
-        setSuccessErrorMessges(fullname, 'Please Enter Full Name');
+        setSuccessErrorMessges(fullname, 'Please enter full name');
         return false;
     } else {
-        setSuccessErrorMessges(fullname, '');
-        return true;
+        // If not empty run the regex to confirm the input is valid
+        let regex = /^[a-zA-Z\s]+$/;
+        if (!regex.test(fullNameValue)) {
+            setSuccessErrorMessges(fullname, 'Please enter a valid full name');
+            return false;
+        } else {
+            setSuccessErrorMessges(fullname, '');
+            return true;
+        }
     }
     
 }
+
+// The rest of the imput fuctions are identical
 
 function CheckEmail() {
     const emailValue = email.value.trim();
@@ -38,8 +48,14 @@ function CheckEmail() {
         setSuccessErrorMessges(email, 'Please enter your email');
         return false;
     } else {
-        setSuccessErrorMessges(email, '');
-        return true;
+        let regex = /^\S+@\S+\.\S+$/;
+        if (!regex.test(emailValue)) {
+            setSuccessErrorMessges(email, 'Please enter a valid email');
+            return false;
+        } else {
+            setSuccessErrorMessges(email, '');
+            return true;
+        }
     }
 }
 
@@ -71,8 +87,14 @@ function CheckReapeatPassword() {
         setSuccessErrorMessges(repeatPassword, 'Please enter your a password');
         return false;
     } else {
-        setSuccessErrorMessges(repeatPassword, '');
-        return true;
+        // For this regex we just directly compare the two password input values
+        if (password.value !== repeatPassword.value) {
+            setSuccessErrorMessges(repeatPassword, 'Password does not match');
+            return false;
+        } else {
+            setSuccessErrorMessges(repeatPassword, '');
+            return true;
+        }
     }
 }
 
@@ -88,6 +110,7 @@ function Checkterms() {
     }
 }
 
+// This is where the form control is handled
 const setSuccessErrorMessges = (input, message) => {
     const formControl = input.parentElement;
 
